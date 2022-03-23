@@ -1,65 +1,41 @@
-class TypeWriter {
-  constructor(txtElement, words, wait = 3000) {
-    this.txtElement = txtElement;
-    this.words = words;
-    this.txt = '';
-    this.wordIndex = 0;
-    this.wait = parseInt(wait, 10);
-    this.type();
-    this.isDeleting = false;
-  }
+var typeText = document.querySelector(".typeText")
+var textToBeTyped = "a software engineer"
+var textToBeTypedArr = ["web designer", "UI/UX designer", "code enthusiast"]
+var index = 0, isAdding = true, textToBeTypedIndex = 0
 
-  type() {
-    // Current index of word
-    const current = this.wordIndex % this.words.length;
-    // Get full text of current word
-    const fullTxt = this.words[current];
-
-    // Check if deleting
-    if (this.isDeleting) {
-      // Remove char
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
+function playAnim() {
+  setTimeout(function () {
+    // set the text of typeText to a substring of the text to be typed using index.
+    typeText.innerText = textToBeTypedArr[textToBeTypedIndex].slice(0, index)
+    if (isAdding) {
+      // adding text
+      if (index > textToBeTypedArr[textToBeTypedIndex].length) {
+        // no more text to add
+        isAdding = false
+        //break: wait 2s before playing again
+        setTimeout(function () {
+          playAnim()
+        }, 2000)
+        return
+      } else {
+        // increment index by 1
+        index++
+      }
     } else {
-      // Add char
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
+      // removing text
+      if (index === 0) {
+        // no more text to remove
+        isAdding = true
+        //switch to next text in text array
+        textToBeTypedIndex = (textToBeTypedIndex + 1) % textToBeTypedArr.length
+      } else {
+        // decrement index by 1
+        index--
+      }
     }
-
-    // Insert txt into element
-    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-    // Initial Type Speed
-    let typeSpeed = 300;
-
-    if (this.isDeleting) {
-      typeSpeed /= 2;
-    }
-
-    // If word is complete
-    if (!this.isDeleting && this.txt === fullTxt) {
-      // Make pause at end
-      typeSpeed = this.wait;
-      // Set delete to true
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
-      // Move to next word
-      this.wordIndex++;
-      // Pause before start typing
-      typeSpeed = 500;
-    }
-
-    setTimeout(() => this.type(), typeSpeed);
-  }
+    // call itself
+    playAnim()
+  }, isAdding ? 120 : 60)
 }
-
-// Init On DOM Load
-document.addEventListener('DOMContentLoaded', init);
-
-// Init App
-function init() {
-  const txtElement = document.querySelector('.txt-type');
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
-  const wait = txtElement.getAttribute('data-wait');
-  // Init TypeWriter
-  new TypeWriter(txtElement, words, wait);
-}
+// start animation
+playAnim()
