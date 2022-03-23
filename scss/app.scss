@@ -1,10 +1,4 @@
-// variables
-$website-width: 1280px;
-$main-color: #ffbc00;
-$light-color: #f4f4f4;
-$medium-color: #ccc;
-$dark-color: #333;
-$bg-image: url("../images/showcase.jpg");
+@import "utilities";
 
 // general styles
 * {
@@ -36,4 +30,26 @@ h4 {
 
 img {
   width: 100%;
+}
+
+// logo
+#logo {
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+// main nav
+
+// header
+#header {
+  &-home {
+    background: $bg-image no-repeat center right/cover;
+    height: 100vh;
+    color: #fff;
+  }
+
+  &-inner {
+  }
 }

@@ -1,3 +1,10 @@
+.container {
+  max-width: 1280px;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +34,19 @@ h4 {
 
 img {
   width: 100%;
+}
+
+#logo {
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#header-home {
+  background: url("../images/showcase.jpg") no-repeat center right/cover;
+  height: 100vh;
+  color: #fff;
 }
 
 /*# sourceMappingURL=app.css.map */
