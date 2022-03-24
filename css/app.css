@@ -1,6 +1,6 @@
 .container {
-  max-width: 1280px;
-  padding: 0 1.5rem;
+  max-width: 1180px;
+  padding: 0 2.5rem;
   margin: auto;
   overflow: hidden;
 }
@@ -39,6 +39,45 @@ input[class^=btn-]:hover {
 
 .text-center {
   text-align: center;
+}
+
+.typeText::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.py-1 {
+  padding: 1rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+.py-4 {
+  padding: 4rem 0;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+.my-2 {
+  margin: 2rem 0;
+}
+.my-3 {
+  margin: 3rem 0;
+}
+.my-4 {
+  margin: 4rem 0;
 }
 
 * {
@@ -118,18 +157,38 @@ img {
   font-size: 4rem;
   line-height: 1.2;
 }
-.typeText::after {
-  content: "_";
-  animation: blink 1s step-end infinite;
+#home-a .specials {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+#home-a .specials .fas {
+  color: #ffbc00;
+  padding-bottom: 0.4rem;
+}
+#home-b .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#home-b .stats li {
+  line-height: 2;
+}
+#home-b .stats li.stats-title {
+  font-size: 1.5rem;
+}
+#home-b .stats li.stats-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#home-b .stats div {
+  padding: 3rem 0;
+}
+#home-b .stats div:nth-child(odd) {
+  background: #f4f4f4;
+}
+#home-b .stats div:nth-child(even) {
+  background: #ccc;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -2,7 +2,7 @@
 
 .container {
   max-width: $website-width;
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
   margin: auto;
   overflow: hidden;
 }
@@ -47,4 +47,52 @@ input[class^="btn-"]:hover {
 
 .text-center {
   text-align: center;
+}
+
+// typing text effect
+.typeText::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+// padding classes
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+// margin classes
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
 }
