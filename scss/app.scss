@@ -145,4 +145,50 @@ img {
       }
     }
   }
+
+  // home section C
+  &-c {
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+
+      &-step {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 18px;
+        background: $main-color;
+        border-radius: 50%;
+        height: 15px;
+        line-height: 0;
+        padding: 1rem;
+        transition: all 1s;
+      }
+
+      &-icon {
+        border-radius: 50%;
+        background: $dark-color;
+        color: #fff;
+        height: 80px;
+        width: 80px;
+        line-height: 80px;
+        text-align: center;
+        position: relative;
+        transition: all 1s;
+
+        &:hover {
+          background: $main-color;
+          width: 90px;
+          height: 90px;
+          line-height: 90px;
+
+          .process-step {
+            background: $dark-color;
+          }
+        }
+      }
+    }
+  }
 }
