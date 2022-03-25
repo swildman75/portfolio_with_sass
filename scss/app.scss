@@ -160,6 +160,7 @@ img {
         right: 0;
         font-size: 18px;
         background: $main-color;
+        color: set-text-color($main-color);
         border-radius: 50%;
         height: 15px;
         line-height: 0;
@@ -170,7 +171,7 @@ img {
       &-icon {
         border-radius: 50%;
         background: $dark-color;
-        color: #fff;
+        color: set-text-color($dark-color);
         height: 80px;
         width: 80px;
         line-height: 80px;
@@ -186,8 +187,37 @@ img {
 
           .process-step {
             background: $dark-color;
+            color: set-text-color($dark-color);
           }
         }
+      }
+    }
+  }
+}
+
+// footer
+#main-footer {
+  background: $dark-color;
+  color: #fff;
+  height: 5rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+
+    .social .fab {
+      margin-right: 1rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      line-height: 25px;
+      text-align: center;
+
+      &:hover {
+        background: $main-color;
       }
     }
   }
